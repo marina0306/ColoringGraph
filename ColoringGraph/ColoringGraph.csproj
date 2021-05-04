@@ -8,10 +8,11 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>ColoringGraph</RootNamespace>
     <AssemblyName>ColoringGraph</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -47,6 +48,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DegreeBasedAlgorithm.cs" />
+    <Compile Include="EdgeContraction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EdgeContraction.Designer.cs">
+      <DependentUpon>EdgeContraction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExhaustedAlgorithm.cs" />
     <Compile Include="FirstFitAlgorithm.cs" />
     <Compile Include="IAlgorithm.cs" />
     <Compile Include="MainForm.cs">
@@ -63,6 +71,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="EdgeContraction.resx">
+      <DependentUpon>EdgeContraction.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Graph.resx">
       <DependentUpon>Graph.cs</DependentUpon>
     </EmbeddedResource>
@@ -77,6 +88,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

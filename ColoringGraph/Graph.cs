@@ -43,6 +43,21 @@ namespace ColoringGraph
             return brush;
         }
 
+        private Brush getStringBrush(int vertex)
+        {
+            Brush brush;
+            if (colors != null)
+            {
+                brush = new SolidBrush(Color.Black);
+            }
+            else
+            {
+                brush = new SolidBrush(Color.White);
+            }
+
+            return brush;
+        }
+
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
             var p = sender as Panel;
@@ -91,7 +106,9 @@ namespace ColoringGraph
             for (int i = 0; i < points.Length; i++)
             {
                 Brush brush = getBrush(i);
+                Brush stringBrush = getStringBrush(i);
                 g.FillEllipse(brush, new RectangleF(points[i], new Size(20, 20)));
+                g.DrawString((i + 1).ToString(), new Font("Arial", 14, FontStyle.Regular), stringBrush, points[i]);
             }
         }
     }

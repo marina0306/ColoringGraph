@@ -14,6 +14,9 @@ namespace ColoringGraph
     {
         private int vertex, edge;
         private int[,] array;
+        
+        private bool[] used;
+        private int[] d, h;
 
         public MainForm()
         {
@@ -36,7 +39,7 @@ namespace ColoringGraph
             vertex = Decimal.ToInt32(vertexQuantity.Value);
             array = new int[vertex, vertex];
 
-            if(completeGraph.Checked)
+            if (completeGraph.Checked)
             {
                 edge = vertex * (vertex - 1) / 2;
                 for (int i = 0; i < vertex; i++)
@@ -102,22 +105,124 @@ namespace ColoringGraph
 
         private void firstFitButton_Click(object sender, EventArgs e)
         {
-            FirstFitAlgorithm algorithm = new FirstFitAlgorithm(array);
-            algorithm.getVertex();
-            algorithm.color();
+            if (array != null)
+            {
+                FirstFitAlgorithm algorithm = new FirstFitAlgorithm(array);
+                algorithm.getVertex();
+                algorithm.color();
 
-            Graph graph = new Graph(array, algorithm.getColors());
-            graph.Show();
+                Graph graph = new Graph(array, algorithm.getColors());
+                graph.Show();
+            }
+            else
+            {
+                MessageBox.Show("Сгенерируйте граф, пожалуйста");
+            }
         }
 
         private void degreeBasedAlgorithm_Click(object sender, EventArgs e)
         {
-            DegreeBasedAlgorithm algorithm = new DegreeBasedAlgorithm(array);
-            algorithm.getVertex();
-            algorithm.color();
+            if (array != null)
+            {
+                DegreeBasedAlgorithm algorithm = new DegreeBasedAlgorithm(array);
+                algorithm.getVertex();
+                algorithm.color();
 
-            Graph graph = new Graph(array, algorithm.getColors());
-            graph.Show();
+                Graph graph = new Graph(array, algorithm.getColors());
+                graph.Show();
+            }
+            else
+            {
+                MessageBox.Show("Сгенерируйте граф, пожалуйста");
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (array != null)
+            {
+                ExhaustedAlgorithm algorithm = new ExhaustedAlgorithm(array);
+                algorithm.getVertex();
+                algorithm.color();
+
+                Graph graph = new Graph(array, algorithm.getColors());
+                graph.Show();
+            }
+            else
+            {
+                MessageBox.Show("Сгенерируйте граф, пожалуйста");
+            }
+        }
+
+        private void denseGraph_Click(object sender, EventArgs e)
+        {
+            if (array != null)
+            {
+                int realEdges = edge;
+                int maxEdges = vertex * (vertex - 1) / 2;
+
+                double dense = realEdges / (float)maxEdges;
+
+                MessageBox.Show("Плотность графа = " + dense.ToString());
+            }
+            else
+            {
+                MessageBox.Show("Сгенерируйте граф, пожалуйста");
+            }
+        }
+
+        private void cutVertex_Click(object sender, EventArgs e)
+        {
+            dfs(0, -1);
+            used = new bool[vertex];
+            d = new int[vertex];
+            h = new int[vertex];
+        }
+
+        private void dfs(int v, int p)
+        {
+            used[v] = true;
+            d[v] = h[v] = (p == -1 ? 0 : h[p] + 1);
+            int children = 0;
+            for(int u = 0; u < array.GetLength(v); ++u)
+            {
+                if(used[u])
+                {
+                    d[v] = Math.Min(d[v], h[u]);
+                }
+                else
+                {
+                    dfs(u, v);
+                    d[v] = Math.Min(d[v], d[u]);
+                    if(h[v] <= d[u] && p != -1)
+                    {
+                        isConVertex(v);
+                    }
+                    children++;
+                }
+            }
+            if (p == -1 && children > 1)
+            {
+                isConVertex(v);
+            }
+        }
+
+        private void edgeContraction_Click(object sender, EventArgs e)
+        {
+            EdgeContraction ec = new EdgeContraction(array, this);
+            ec.Show();
+        }
+
+        public void setNewMatrix(int[,] matrix)
+        {
+            array = matrix;
+            vertex--;
+            putArrayInGrid(array);
+        }
+
+        private void isConVertex(int vertex)
+        {
+
         }
 
         private void putArrayInGrid(int[,] array)
