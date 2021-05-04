@@ -7,15 +7,16 @@ using System.Threading.Tasks;
 
 namespace ColoringGraph
 {
-    class DegreeBasedAlgorithm : IAlgorithm
+    class SaturationAlgorithm : IAlgorithm
     {
         private int[,] matrix;
         private Dictionary<Color, bool> colors = new Dictionary<Color, bool>();
         private Dictionary<int, Color> coloredVertex = new Dictionary<int, Color>();
         private Dictionary<int, int> vertexNeighs = new Dictionary<int, int>();
-        private Dictionary<int, int> vertexColorNeighs = new Dictionary<int, int>();
+        private Dictionary<int, int> vertexDifferColorNeighs = new Dictionary<int, int>();
+        private Dictionary<int, List<Color>> neighsColors = new Dictionary<int, List<Color>>();
 
-        public DegreeBasedAlgorithm(int[,] matrix)
+        public SaturationAlgorithm(int[,] matrix)
         {
             this.matrix = matrix;
 
@@ -33,17 +34,18 @@ namespace ColoringGraph
 
         public void getVertex()
         {
-            for(int i = 0; i < matrix.GetLength(0);i++)
+            for (int i = 0; i < matrix.GetLength(0); i++)
             {
                 vertexNeighs.Add(i, 0);
-                vertexColorNeighs.Add(i, 0);
+                vertexDifferColorNeighs.Add(i, 0);
+                neighsColors.Add(i, new List<Color>());
             }
 
-            for(int i = 0; i < matrix.GetLength(0); i++)
+            for (int i = 0; i < matrix.GetLength(0); i++)
             {
                 for (int j = 0; j < matrix.GetLength(0); j++)
                 {
-                    if (matrix[i,j] == 1)
+                    if (matrix[i, j] == 1)
                     {
                         vertexNeighs[i]++;
                     }
@@ -53,29 +55,29 @@ namespace ColoringGraph
 
         public void color()
         {
-            while(coloredVertex.Count != matrix.GetLength(0))
+            while (coloredVertex.Count != matrix.GetLength(0))
             {
                 List<int> maxNeigh = new List<int>();
                 int max = 0;
                 int vertex;
 
-                foreach (int number in vertexNeighs.Keys)
+                foreach (int number in vertexDifferColorNeighs.Keys)
                 {
-                    if (vertexNeighs[number] > max)
+                    if (vertexDifferColorNeighs[number] > max)
                     {
-                        max = vertexNeighs[number];
+                        max = vertexDifferColorNeighs[number];
                     }
                 }
 
-                foreach (int number in vertexNeighs.Keys)
+                foreach (int number in vertexDifferColorNeighs.Keys)
                 {
-                    if (vertexNeighs[number] == max)
+                    if (vertexDifferColorNeighs[number] == max)
                     {
                         maxNeigh.Add(number);
                     }
                 }
 
-                if(maxNeigh.Count > 1)
+                if (maxNeigh.Count > 1)
                 {
                     Random random = new Random();
                     int number = random.Next(0, maxNeigh.Count);
@@ -99,7 +101,16 @@ namespace ColoringGraph
                     if (colors[col])
                     {
                         coloredVertex.Add(vertex, col);
-                        vertexNeighs.Remove(vertex);
+                        List<Color> usedColors = new List<Color>();
+                        for (int i = 0; i < matrix.GetLength(0); i++)
+                        {
+                            if (matrix[vertex, i] == 1 && vertexDifferColorNeighs.ContainsKey(i) && !neighsColors[i].Contains(coloredVertex[vertex]))
+                            {
+                                vertexDifferColorNeighs[i]++;
+                                neighsColors[i].Add(coloredVertex[vertex]);
+                            }
+                        }
+                        vertexDifferColorNeighs.Remove(vertex);
                         break;
                     }
                 }

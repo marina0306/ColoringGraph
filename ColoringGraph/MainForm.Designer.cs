@@ -29,8 +29,8 @@ namespace ColoringGraph
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.matrix = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -44,9 +44,8 @@ namespace ColoringGraph
             this.button7 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.denseGraph = new System.Windows.Forms.Button();
-            this.cutVertex = new System.Windows.Forms.Button();
-            this.edgeContraction = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
+            this.saturationColoring = new System.Windows.Forms.Button();
+            this.incidenceColoring = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.matrix)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vertexQuantity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edgeQuantity)).BeginInit();
@@ -57,29 +56,29 @@ namespace ColoringGraph
             this.matrix.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.matrix.BackgroundColor = System.Drawing.SystemColors.Window;
             this.matrix.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.OrangeRed;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.matrix.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.OrangeRed;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.matrix.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.matrix.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.matrix.GridColor = System.Drawing.Color.Tomato;
-            this.matrix.Location = new System.Drawing.Point(258, 122);
+            this.matrix.Location = new System.Drawing.Point(302, 121);
             this.matrix.Name = "matrix";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.OrangeRed;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.matrix.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.OrangeRed;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.matrix.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.matrix.RowHeadersWidth = 62;
             this.matrix.RowTemplate.Height = 28;
-            this.matrix.Size = new System.Drawing.Size(800, 477);
+            this.matrix.Size = new System.Drawing.Size(794, 477);
             this.matrix.TabIndex = 0;
             this.matrix.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.matrix_RowPrePaint);
             // 
@@ -87,7 +86,7 @@ namespace ColoringGraph
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Comic Sans MS", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(250, 12);
+            this.label1.Location = new System.Drawing.Point(288, 11);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(325, 45);
             this.label1.TabIndex = 2;
@@ -97,7 +96,7 @@ namespace ColoringGraph
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Comic Sans MS", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(250, 68);
+            this.label2.Location = new System.Drawing.Point(288, 67);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(298, 45);
             this.label2.TabIndex = 4;
@@ -107,7 +106,7 @@ namespace ColoringGraph
             // 
             this.completeGraph.AutoSize = true;
             this.completeGraph.Font = new System.Drawing.Font("Comic Sans MS", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.completeGraph.Location = new System.Drawing.Point(732, 15);
+            this.completeGraph.Location = new System.Drawing.Point(770, 14);
             this.completeGraph.Name = "completeGraph";
             this.completeGraph.Size = new System.Drawing.Size(262, 49);
             this.completeGraph.TabIndex = 5;
@@ -120,7 +119,7 @@ namespace ColoringGraph
             this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Plum;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Comic Sans MS", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(732, 65);
+            this.button1.Location = new System.Drawing.Point(770, 64);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(326, 51);
             this.button1.TabIndex = 6;
@@ -131,7 +130,7 @@ namespace ColoringGraph
             // vertexQuantity
             // 
             this.vertexQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.vertexQuantity.Location = new System.Drawing.Point(584, 15);
+            this.vertexQuantity.Location = new System.Drawing.Point(622, 14);
             this.vertexQuantity.Name = "vertexQuantity";
             this.vertexQuantity.Size = new System.Drawing.Size(120, 44);
             this.vertexQuantity.TabIndex = 7;
@@ -140,7 +139,7 @@ namespace ColoringGraph
             // edgeQuantity
             // 
             this.edgeQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.edgeQuantity.Location = new System.Drawing.Point(584, 71);
+            this.edgeQuantity.Location = new System.Drawing.Point(622, 70);
             this.edgeQuantity.Name = "edgeQuantity";
             this.edgeQuantity.Size = new System.Drawing.Size(120, 44);
             this.edgeQuantity.TabIndex = 8;
@@ -153,7 +152,7 @@ namespace ColoringGraph
             this.buildGraph.Font = new System.Drawing.Font("Comic Sans MS", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buildGraph.Location = new System.Drawing.Point(3, 122);
             this.buildGraph.Name = "buildGraph";
-            this.buildGraph.Size = new System.Drawing.Size(249, 108);
+            this.buildGraph.Size = new System.Drawing.Size(290, 117);
             this.buildGraph.TabIndex = 9;
             this.buildGraph.Text = "Построить граф";
             this.buildGraph.UseVisualStyleBackColor = false;
@@ -165,9 +164,9 @@ namespace ColoringGraph
             this.firstFitButton.FlatAppearance.BorderColor = System.Drawing.Color.Plum;
             this.firstFitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.firstFitButton.Font = new System.Drawing.Font("Comic Sans MS", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.firstFitButton.Location = new System.Drawing.Point(1060, 122);
+            this.firstFitButton.Location = new System.Drawing.Point(1102, 121);
             this.firstFitButton.Name = "firstFitButton";
-            this.firstFitButton.Size = new System.Drawing.Size(336, 118);
+            this.firstFitButton.Size = new System.Drawing.Size(338, 118);
             this.firstFitButton.TabIndex = 10;
             this.firstFitButton.Text = "Последовательная раскраска";
             this.firstFitButton.UseVisualStyleBackColor = false;
@@ -179,11 +178,11 @@ namespace ColoringGraph
             this.degreeBasedAlgorithm.FlatAppearance.BorderColor = System.Drawing.Color.Plum;
             this.degreeBasedAlgorithm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.degreeBasedAlgorithm.Font = new System.Drawing.Font("Comic Sans MS", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.degreeBasedAlgorithm.Location = new System.Drawing.Point(1060, 369);
+            this.degreeBasedAlgorithm.Location = new System.Drawing.Point(3, 319);
             this.degreeBasedAlgorithm.Name = "degreeBasedAlgorithm";
-            this.degreeBasedAlgorithm.Size = new System.Drawing.Size(338, 112);
+            this.degreeBasedAlgorithm.Size = new System.Drawing.Size(290, 160);
             this.degreeBasedAlgorithm.TabIndex = 11;
-            this.degreeBasedAlgorithm.Text = "Раскраска по степеням";
+            this.degreeBasedAlgorithm.Text = "Раскраска с наибольшей степенью";
             this.degreeBasedAlgorithm.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.degreeBasedAlgorithm.UseVisualStyleBackColor = false;
             this.degreeBasedAlgorithm.Click += new System.EventHandler(this.degreeBasedAlgorithm_Click);
@@ -194,7 +193,7 @@ namespace ColoringGraph
             this.button7.FlatAppearance.BorderColor = System.Drawing.Color.Plum;
             this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button7.Font = new System.Drawing.Font("Comic Sans MS", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button7.Location = new System.Drawing.Point(1062, 488);
+            this.button7.Location = new System.Drawing.Point(1104, 487);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(336, 111);
             this.button7.TabIndex = 17;
@@ -208,7 +207,7 @@ namespace ColoringGraph
             this.button2.FlatAppearance.BorderColor = System.Drawing.Color.Plum;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Comic Sans MS", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button2.Location = new System.Drawing.Point(1060, 245);
+            this.button2.Location = new System.Drawing.Point(1102, 244);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(338, 118);
             this.button2.TabIndex = 18;
@@ -222,65 +221,52 @@ namespace ColoringGraph
             this.denseGraph.FlatAppearance.BorderColor = System.Drawing.Color.Plum;
             this.denseGraph.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.denseGraph.Font = new System.Drawing.Font("Comic Sans MS", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.denseGraph.Location = new System.Drawing.Point(3, 235);
+            this.denseGraph.Location = new System.Drawing.Point(3, 244);
             this.denseGraph.Name = "denseGraph";
-            this.denseGraph.Size = new System.Drawing.Size(249, 60);
+            this.denseGraph.Size = new System.Drawing.Size(290, 69);
             this.denseGraph.TabIndex = 19;
             this.denseGraph.Text = "Плотность";
             this.denseGraph.UseVisualStyleBackColor = false;
             this.denseGraph.Click += new System.EventHandler(this.denseGraph_Click);
             // 
-            // cutVertex
+            // saturationColoring
             // 
-            this.cutVertex.BackColor = System.Drawing.Color.Plum;
-            this.cutVertex.FlatAppearance.BorderColor = System.Drawing.Color.Plum;
-            this.cutVertex.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cutVertex.Font = new System.Drawing.Font("Comic Sans MS", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.cutVertex.Location = new System.Drawing.Point(3, 302);
-            this.cutVertex.Name = "cutVertex";
-            this.cutVertex.Size = new System.Drawing.Size(249, 108);
-            this.cutVertex.TabIndex = 21;
-            this.cutVertex.Text = "Точки сочленения";
-            this.cutVertex.UseVisualStyleBackColor = false;
-            this.cutVertex.Click += new System.EventHandler(this.cutVertex_Click);
+            this.saturationColoring.BackColor = System.Drawing.Color.Plum;
+            this.saturationColoring.FlatAppearance.BorderColor = System.Drawing.Color.Plum;
+            this.saturationColoring.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.saturationColoring.Font = new System.Drawing.Font("Comic Sans MS", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.saturationColoring.Location = new System.Drawing.Point(1103, 368);
+            this.saturationColoring.Name = "saturationColoring";
+            this.saturationColoring.Size = new System.Drawing.Size(337, 113);
+            this.saturationColoring.TabIndex = 24;
+            this.saturationColoring.Text = "Насыщенная раскраска";
+            this.saturationColoring.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.saturationColoring.UseVisualStyleBackColor = false;
+            this.saturationColoring.Click += new System.EventHandler(this.saturationColoring_Click);
             // 
-            // edgeContraction
+            // incidenceColoring
             // 
-            this.edgeContraction.BackColor = System.Drawing.Color.Plum;
-            this.edgeContraction.FlatAppearance.BorderColor = System.Drawing.Color.Plum;
-            this.edgeContraction.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.edgeContraction.Font = new System.Drawing.Font("Comic Sans MS", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.edgeContraction.Location = new System.Drawing.Point(3, 415);
-            this.edgeContraction.Name = "edgeContraction";
-            this.edgeContraction.Size = new System.Drawing.Size(249, 111);
-            this.edgeContraction.TabIndex = 22;
-            this.edgeContraction.Text = "Стягивание графа";
-            this.edgeContraction.UseVisualStyleBackColor = false;
-            this.edgeContraction.Click += new System.EventHandler(this.edgeContraction_Click);
-            // 
-            // button8
-            // 
-            this.button8.BackColor = System.Drawing.Color.Plum;
-            this.button8.FlatAppearance.BorderColor = System.Drawing.Color.Plum;
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Font = new System.Drawing.Font("Comic Sans MS", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button8.Location = new System.Drawing.Point(3, 532);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(249, 66);
-            this.button8.TabIndex = 23;
-            this.button8.Text = "Мосты";
-            this.button8.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button8.UseVisualStyleBackColor = false;
+            this.incidenceColoring.BackColor = System.Drawing.Color.Plum;
+            this.incidenceColoring.FlatAppearance.BorderColor = System.Drawing.Color.Plum;
+            this.incidenceColoring.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.incidenceColoring.Font = new System.Drawing.Font("Comic Sans MS", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.incidenceColoring.Location = new System.Drawing.Point(3, 485);
+            this.incidenceColoring.Name = "incidenceColoring";
+            this.incidenceColoring.Size = new System.Drawing.Size(290, 113);
+            this.incidenceColoring.TabIndex = 25;
+            this.incidenceColoring.Text = "Раскраска по охвату вершин";
+            this.incidenceColoring.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.incidenceColoring.UseVisualStyleBackColor = false;
+            this.incidenceColoring.Click += new System.EventHandler(this.incidenceColoring_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Cornsilk;
-            this.ClientSize = new System.Drawing.Size(1406, 660);
-            this.Controls.Add(this.button8);
-            this.Controls.Add(this.edgeContraction);
-            this.Controls.Add(this.cutVertex);
+            this.ClientSize = new System.Drawing.Size(1451, 610);
+            this.Controls.Add(this.incidenceColoring);
+            this.Controls.Add(this.saturationColoring);
             this.Controls.Add(this.denseGraph);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button7);
@@ -320,9 +306,8 @@ namespace ColoringGraph
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button denseGraph;
-        private System.Windows.Forms.Button cutVertex;
-        private System.Windows.Forms.Button edgeContraction;
-        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button saturationColoring;
+        private System.Windows.Forms.Button incidenceColoring;
     }
 }
 

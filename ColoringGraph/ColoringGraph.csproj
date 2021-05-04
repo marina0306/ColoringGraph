@@ -48,15 +48,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DegreeBasedAlgorithm.cs" />
-    <Compile Include="EdgeContraction.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="EdgeContraction.Designer.cs">
-      <DependentUpon>EdgeContraction.cs</DependentUpon>
-    </Compile>
     <Compile Include="ExhaustedAlgorithm.cs" />
     <Compile Include="FirstFitAlgorithm.cs" />
     <Compile Include="IAlgorithm.cs" />
+    <Compile Include="IncidenceAlgorithm.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,9 +66,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="EdgeContraction.resx">
-      <DependentUpon>EdgeContraction.cs</DependentUpon>
-    </EmbeddedResource>
+    <Compile Include="SaturationAlgorithm.cs" />
     <EmbeddedResource Include="Graph.resx">
       <DependentUpon>Graph.cs</DependentUpon>
     </EmbeddedResource>

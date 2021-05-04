@@ -171,14 +171,6 @@ namespace ColoringGraph
             }
         }
 
-        private void cutVertex_Click(object sender, EventArgs e)
-        {
-            dfs(0, -1);
-            used = new bool[vertex];
-            d = new int[vertex];
-            h = new int[vertex];
-        }
-
         private void dfs(int v, int p)
         {
             used[v] = true;
@@ -207,17 +199,45 @@ namespace ColoringGraph
             }
         }
 
-        private void edgeContraction_Click(object sender, EventArgs e)
-        {
-            EdgeContraction ec = new EdgeContraction(array, this);
-            ec.Show();
-        }
-
         public void setNewMatrix(int[,] matrix)
         {
             array = matrix;
             vertex--;
             putArrayInGrid(array);
+        }
+
+        private void incidenceColoring_Click(object sender, EventArgs e)
+        {
+            if (array != null)
+            {
+                IncidenceAlgorithm algorithm = new IncidenceAlgorithm(array);
+                algorithm.getVertex();
+                algorithm.color();
+
+                Graph graph = new Graph(array, algorithm.getColors());
+                graph.Show();
+            }
+            else
+            {
+                MessageBox.Show("Сгенерируйте граф, пожалуйста");
+            }
+        }
+
+        private void saturationColoring_Click(object sender, EventArgs e)
+        {
+            if (array != null)
+            {
+                SaturationAlgorithm algorithm = new SaturationAlgorithm(array);
+                algorithm.getVertex();
+                algorithm.color();
+
+                Graph graph = new Graph(array, algorithm.getColors());
+                graph.Show();
+            }
+            else
+            {
+                MessageBox.Show("Сгенерируйте граф, пожалуйста");
+            }
         }
 
         private void isConVertex(int vertex)
