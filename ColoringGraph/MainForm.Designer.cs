@@ -29,8 +29,8 @@ namespace ColoringGraph
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.matrix = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -46,9 +46,15 @@ namespace ColoringGraph
             this.denseGraph = new System.Windows.Forms.Button();
             this.saturationColoring = new System.Windows.Forms.Button();
             this.incidenceColoring = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.iterationsNumber = new System.Windows.Forms.NumericUpDown();
+            this.maxEdges = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.matrix)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vertexQuantity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edgeQuantity)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iterationsNumber)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.maxEdges)).BeginInit();
             this.SuspendLayout();
             // 
             // matrix
@@ -56,26 +62,26 @@ namespace ColoringGraph
             this.matrix.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.matrix.BackgroundColor = System.Drawing.SystemColors.Window;
             this.matrix.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.OrangeRed;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.matrix.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.OrangeRed;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.matrix.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.matrix.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.matrix.GridColor = System.Drawing.Color.Tomato;
             this.matrix.Location = new System.Drawing.Point(302, 121);
             this.matrix.Name = "matrix";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.OrangeRed;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.matrix.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.OrangeRed;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.matrix.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.matrix.RowHeadersWidth = 62;
             this.matrix.RowTemplate.Height = 28;
             this.matrix.Size = new System.Drawing.Size(794, 477);
@@ -200,6 +206,7 @@ namespace ColoringGraph
             this.button7.Text = "Анализ алгоритмов";
             this.button7.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.button7.UseVisualStyleBackColor = false;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // button2
             // 
@@ -259,12 +266,52 @@ namespace ColoringGraph
             this.incidenceColoring.UseVisualStyleBackColor = false;
             this.incidenceColoring.Click += new System.EventHandler(this.incidenceColoring_Click);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Comic Sans MS", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.Location = new System.Drawing.Point(343, 606);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(357, 45);
+            this.label3.TabIndex = 26;
+            this.label3.Text = "Количество итераций";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Comic Sans MS", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label4.Location = new System.Drawing.Point(343, 663);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(558, 45);
+            this.label4.TabIndex = 27;
+            this.label4.Text = "Максимальное количество вершин";
+            // 
+            // iterationsNumber
+            // 
+            this.iterationsNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.iterationsNumber.Location = new System.Drawing.Point(923, 606);
+            this.iterationsNumber.Name = "iterationsNumber";
+            this.iterationsNumber.Size = new System.Drawing.Size(120, 44);
+            this.iterationsNumber.TabIndex = 28;
+            // 
+            // maxEdges
+            // 
+            this.maxEdges.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.maxEdges.Location = new System.Drawing.Point(923, 663);
+            this.maxEdges.Name = "maxEdges";
+            this.maxEdges.Size = new System.Drawing.Size(120, 44);
+            this.maxEdges.TabIndex = 29;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Cornsilk;
-            this.ClientSize = new System.Drawing.Size(1451, 610);
+            this.ClientSize = new System.Drawing.Size(1451, 737);
+            this.Controls.Add(this.maxEdges);
+            this.Controls.Add(this.iterationsNumber);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.incidenceColoring);
             this.Controls.Add(this.saturationColoring);
             this.Controls.Add(this.denseGraph);
@@ -286,6 +333,8 @@ namespace ColoringGraph
             ((System.ComponentModel.ISupportInitialize)(this.matrix)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vertexQuantity)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.edgeQuantity)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iterationsNumber)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.maxEdges)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -308,6 +357,10 @@ namespace ColoringGraph
         private System.Windows.Forms.Button denseGraph;
         private System.Windows.Forms.Button saturationColoring;
         private System.Windows.Forms.Button incidenceColoring;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.NumericUpDown iterationsNumber;
+        private System.Windows.Forms.NumericUpDown maxEdges;
     }
 }
 

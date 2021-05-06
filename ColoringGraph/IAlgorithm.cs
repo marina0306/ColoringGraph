@@ -12,6 +12,5 @@ namespace ColoringGraph
         void getVertex();
         void color();
         Dictionary<int, Color> getColors();
-        void returnColors();
     }
 }

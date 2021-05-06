@@ -61,6 +61,8 @@ namespace ColoringGraph
 
             putArrayInGrid(array);
 
+            Colors.resetColors();
+            Colors.generateColors(array);
         }
 
         private int[,] getRandomMatrix()
@@ -171,41 +173,6 @@ namespace ColoringGraph
             }
         }
 
-        private void dfs(int v, int p)
-        {
-            used[v] = true;
-            d[v] = h[v] = (p == -1 ? 0 : h[p] + 1);
-            int children = 0;
-            for(int u = 0; u < array.GetLength(v); ++u)
-            {
-                if(used[u])
-                {
-                    d[v] = Math.Min(d[v], h[u]);
-                }
-                else
-                {
-                    dfs(u, v);
-                    d[v] = Math.Min(d[v], d[u]);
-                    if(h[v] <= d[u] && p != -1)
-                    {
-                        isConVertex(v);
-                    }
-                    children++;
-                }
-            }
-            if (p == -1 && children > 1)
-            {
-                isConVertex(v);
-            }
-        }
-
-        public void setNewMatrix(int[,] matrix)
-        {
-            array = matrix;
-            vertex--;
-            putArrayInGrid(array);
-        }
-
         private void incidenceColoring_Click(object sender, EventArgs e)
         {
             if (array != null)
@@ -240,9 +207,10 @@ namespace ColoringGraph
             }
         }
 
-        private void isConVertex(int vertex)
+        private void button7_Click(object sender, EventArgs e)
         {
-
+            AnalyzeAlgorithms analysis = new AnalyzeAlgorithms((int)iterationsNumber.Value, (int)maxEdges.Value);
+            analysis.startAnalyze();
         }
 
         private void putArrayInGrid(int[,] array)

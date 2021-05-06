@@ -18,16 +18,7 @@ namespace ColoringGraph
         {
             this.matrix = matrix;
 
-            colors.Add(Color.Red, true);
-            colors.Add(Color.Yellow, true);
-            colors.Add(Color.Green, true);
-            colors.Add(Color.Blue, true);
-            colors.Add(Color.Purple, true);
-            colors.Add(Color.Brown, true);
-            colors.Add(Color.Gray, true);
-            colors.Add(Color.Pink, true);
-            colors.Add(Color.Orange, true);
-            colors.Add(Color.LightGreen, true);
+            colors = Colors.getColorList();
         }
 
         public void getVertex()
@@ -67,27 +58,13 @@ namespace ColoringGraph
                     }
                 }
 
-                returnColors();
+                colors = Colors.returnColor(colors);
             }
         }
 
         public Dictionary<int, Color> getColors()
         {
             return coloredVertex;
-        }
-
-        public void returnColors()
-        {
-            colors[Color.Red] = true;
-            colors[Color.Yellow] = true;
-            colors[Color.Green] = true;
-            colors[Color.Blue] = true;
-            colors[Color.Purple] = true;
-            colors[Color.Brown] = true;
-            colors[Color.Gray] = true;
-            colors[Color.Pink] = true;
-            colors[Color.Orange] = true;
-            colors[Color.LightGreen] = true;
         }
     }
 }
