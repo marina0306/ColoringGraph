@@ -14,9 +14,6 @@ namespace ColoringGraph
     {
         private int vertex, edge;
         private int[,] array;
-        
-        private bool[] used;
-        private int[] d, h;
 
         public MainForm()
         {
@@ -27,6 +24,8 @@ namespace ColoringGraph
         {
             vertexQuantity.Minimum = 1;
             vertexQuantity.Maximum = 10;
+            maxEdges.Maximum = 10000;
+            iterationsNumber.Maximum = 1000;
         }
 
         private void vertexQuantity_ValueChanged(object sender, EventArgs e)

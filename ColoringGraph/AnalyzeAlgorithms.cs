@@ -38,7 +38,7 @@ namespace ColoringGraph
             while(initial < maxVertex)
             {
                 algorithmTable.Add(initial, new List<int>());
-                initial += iterations;
+                initial += 5;
             }
 
             algorithmTable.Add(maxVertex, new List<int>());
@@ -51,6 +51,9 @@ namespace ColoringGraph
                 for(int i = 0; i < iterations; i++)
                 {
                     int[,] matrix = generateMatrix(currentVertex);
+
+                    Colors.resetColors();
+                    Colors.generateColors(matrix);
 
                     ExhaustedAlgorithm ea = new ExhaustedAlgorithm(matrix);
                     FirstFitAlgorithm ffa = new FirstFitAlgorithm(matrix);
@@ -83,6 +86,8 @@ namespace ColoringGraph
 
         private void addTable(IAlgorithm algorithm, Dictionary<int, List<int>> algorithmTable)
         {
+            algorithm.getVertex();
+            algorithm.color();
             usedColors = getColorNumber(algorithm.getColors());
             algorithmTable[currentVertex].Add(usedColors);
         }
