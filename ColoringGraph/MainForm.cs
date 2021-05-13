@@ -23,9 +23,9 @@ namespace ColoringGraph
         private void Form1_Load(object sender, EventArgs e)
         {
             vertexQuantity.Minimum = 1;
-            vertexQuantity.Maximum = 10;
-            maxEdges.Maximum = 10000;
-            iterationsNumber.Maximum = 1000;
+            vertexQuantity.Maximum = 20;
+            maxEdges.Maximum = 500;
+            iterationsNumber.Maximum = 500;
         }
 
         private void vertexQuantity_ValueChanged(object sender, EventArgs e)

@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace ColoringGraph
@@ -18,6 +20,12 @@ namespace ColoringGraph
         private Dictionary<int, List<int>> saturationAlgorithm = new Dictionary<int, List<int>>();
         private Dictionary<int, List<int>> incidenceAlgorithm = new Dictionary<int, List<int>>();
 
+        private Dictionary<int, List<double>> eTime = new Dictionary<int, List<double>>();
+        private Dictionary<int, List<double>> ffTime = new Dictionary<int, List<double>>();
+        private Dictionary<int, List<double>> dbTime = new Dictionary<int, List<double>>();
+        private Dictionary<int, List<double>> sTime = new Dictionary<int, List<double>>();
+        private Dictionary<int, List<double>> iTime = new Dictionary<int, List<double>>();
+
         public AnalyzeAlgorithms(int iterations, int maxVertex)
         {
             this.iterations = iterations;
@@ -29,6 +37,12 @@ namespace ColoringGraph
             getInitialTable(degreeBasedAlgorithm);
             getInitialTable(firstFitAlgorithm);
             getInitialTable(exhaustedAlgorithm);
+
+            getInitialTable(eTime);
+            getInitialTable(ffTime);
+            getInitialTable(dbTime);
+            getInitialTable(sTime);
+            getInitialTable(iTime);
         }
 
         private void getInitialTable(Dictionary<int, List<int>> algorithmTable) 
@@ -42,6 +56,19 @@ namespace ColoringGraph
             }
 
             algorithmTable.Add(maxVertex, new List<int>());
+        }
+
+        private void getInitialTable(Dictionary<int, List<double>> algorithmTable)
+        {
+            int initial = currentVertex;
+
+            while (initial < maxVertex)
+            {
+                algorithmTable.Add(initial, new List<double>());
+                initial += 5;
+            }
+
+            algorithmTable.Add(maxVertex, new List<double>());
         }
 
         public void startAnalyze()
@@ -61,11 +88,11 @@ namespace ColoringGraph
                     SaturationAlgorithm sa = new SaturationAlgorithm(matrix);
                     IncidenceAlgorithm ia = new IncidenceAlgorithm(matrix);
 
-                    addTable(ea, exhaustedAlgorithm);
-                    addTable(ffa, firstFitAlgorithm);
-                    addTable(dba, degreeBasedAlgorithm);
-                    addTable(sa, saturationAlgorithm);
-                    addTable(ia, incidenceAlgorithm);
+                    addTable(ea, exhaustedAlgorithm, eTime);
+                    addTable(ffa, firstFitAlgorithm, ffTime);
+                    addTable(dba, degreeBasedAlgorithm, dbTime);
+                    addTable(sa, saturationAlgorithm, sTime);
+                    addTable(ia, incidenceAlgorithm, iTime);
                 }
 
                 if(currentVertex != maxVertex && (currentVertex + 5) > maxVertex)
@@ -80,16 +107,21 @@ namespace ColoringGraph
 
             AnalysisForm analysisForm = 
                 new AnalysisForm(exhaustedAlgorithm, firstFitAlgorithm, 
-                degreeBasedAlgorithm, saturationAlgorithm, incidenceAlgorithm);
+                degreeBasedAlgorithm, saturationAlgorithm, incidenceAlgorithm, 
+                eTime, ffTime, dbTime, sTime, iTime);
             analysisForm.Show();
         }
 
-        private void addTable(IAlgorithm algorithm, Dictionary<int, List<int>> algorithmTable)
+        private void addTable(IAlgorithm algorithm, Dictionary<int, List<int>> algorithmTable, Dictionary<int, List<double>> algTime)
         {
             algorithm.getVertex();
+            Stopwatch timer = new Stopwatch();
+            timer.Start();
             algorithm.color();
+            timer.Stop();
             usedColors = getColorNumber(algorithm.getColors());
             algorithmTable[currentVertex].Add(usedColors);
+            algTime[currentVertex].Add(timer.ElapsedMilliseconds);
         }
 
         private int getColorNumber(Dictionary<int, Color> coloredVertex) 
