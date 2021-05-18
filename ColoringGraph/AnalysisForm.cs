@@ -66,6 +66,9 @@ namespace ColoringGraph
             chart1.Series[seriesNumber].Legend = "Legend1";
             chart1.Series[seriesNumber].ChartArea = "ChartArea1";
             chart1.Series[seriesNumber].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+
+            chart1.ChartAreas[0].AxisX.Title = "Число вершин";
+            chart1.ChartAreas[0].AxisY.Title = "Число цветов";
             foreach (int vertexNumber in table.Keys)
             {
                 foreach(int colorNumber in table[vertexNumber])
@@ -88,6 +91,9 @@ namespace ColoringGraph
             chart2.Series[seriesNumber].Legend = "Legend1";
             chart2.Series[seriesNumber].ChartArea = "ChartArea1";
             chart2.Series[seriesNumber].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+
+            chart2.ChartAreas[0].AxisX.Title = "Число вершин";
+            chart2.ChartAreas[0].AxisY.Title = "Время работы";
             foreach (int vertexNumber in tableTime.Keys)
             {
                 foreach (int colorNumber in tableTime[vertexNumber])
@@ -107,7 +113,21 @@ namespace ColoringGraph
 
         private void saveData_Click(object sender, EventArgs e)
         {
+            saveFileDialog1.FileName = "AnalyzedData";
+            saveFileDialog1.Filter = "Excel Files|*.xlsx";
 
+            if(saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                ExcelDocument excelDocument = new ExcelDocument();
+                excelDocument.createDocument(exhaustedAlgorithm, firstFitAlgorithm, degreeBasedAlgorithm, saturationAlgorithm,
+                    incidenceAlgorithm, eTime, ffTime, dbTime, sTime, iTime);
+
+                excelDocument.getWorksheet().SaveAs(saveFileDialog1.FileName, Type.Missing, Type.Missing, Type.Missing, 
+                    Type.Missing, Type.Missing, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlNoChange, Type.Missing, 
+                    Type.Missing, Type.Missing);
+                excelDocument.getWorkbook().Close(false, Type.Missing, Type.Missing);
+                excelDocument.getApp().Quit();
+            }
         }
     }
 }

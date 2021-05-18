@@ -29,6 +29,7 @@ namespace ColoringGraph
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Graph));
             this.panel1 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
@@ -36,7 +37,7 @@ namespace ColoringGraph
             // 
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(776, 426);
+            this.panel1.Size = new System.Drawing.Size(868, 623);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -44,10 +45,12 @@ namespace ColoringGraph
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.Color.Cornsilk;
+            this.ClientSize = new System.Drawing.Size(892, 647);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Graph";
-            this.Text = "Graph";
+            this.Text = "Отрисовка графа";
             this.ResumeLayout(false);
 
         }

@@ -45,16 +45,19 @@ namespace ColoringGraph
             System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AnalysisForm));
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.buildDiagram = new System.Windows.Forms.Button();
             this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.saveData = new System.Windows.Forms.Button();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
             this.SuspendLayout();
             // 
             // chart1
             // 
+            this.chart1.BackColor = System.Drawing.Color.Cornsilk;
             chartArea1.Name = "ChartArea1";
             this.chart1.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
@@ -106,26 +109,31 @@ namespace ColoringGraph
             this.chart1.Text = "chart1";
             title1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             title1.Name = "Title1";
-            title1.Text = "Диаграмма работы алгоритмов";
+            title1.Text = "Диаграмма зависимости числа вершин и числа цветов";
             this.chart1.Titles.Add(title1);
             // 
             // buildDiagram
             // 
-            this.buildDiagram.Location = new System.Drawing.Point(12, 479);
+            this.buildDiagram.BackColor = System.Drawing.Color.Plum;
+            this.buildDiagram.FlatAppearance.BorderColor = System.Drawing.Color.Plum;
+            this.buildDiagram.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buildDiagram.Font = new System.Drawing.Font("Comic Sans MS", 12F);
+            this.buildDiagram.Location = new System.Drawing.Point(195, 479);
             this.buildDiagram.Name = "buildDiagram";
-            this.buildDiagram.Size = new System.Drawing.Size(276, 35);
+            this.buildDiagram.Size = new System.Drawing.Size(333, 64);
             this.buildDiagram.TabIndex = 1;
-            this.buildDiagram.Text = "Построить диаграмму";
-            this.buildDiagram.UseVisualStyleBackColor = true;
+            this.buildDiagram.Text = "Построить диаграммы";
+            this.buildDiagram.UseVisualStyleBackColor = false;
             this.buildDiagram.Click += new System.EventHandler(this.buildDiagram_Click);
             // 
             // chart2
             // 
+            this.chart2.BackColor = System.Drawing.Color.Cornsilk;
             chartArea2.Name = "ChartArea1";
             this.chart2.ChartAreas.Add(chartArea2);
             legend2.Name = "Legend1";
             this.chart2.Legends.Add(legend2);
-            this.chart2.Location = new System.Drawing.Point(12, 520);
+            this.chart2.Location = new System.Drawing.Point(12, 549);
             this.chart2.Name = "chart2";
             this.chart2.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
             series6.BorderWidth = 3;
@@ -172,30 +180,36 @@ namespace ColoringGraph
             this.chart2.Text = "chart2";
             title2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             title2.Name = "Title1";
-            title2.Text = "Диаграмма работы алгоритмов";
+            title2.Text = "Диаграмма зависимости числа вершин и времени работы алгоритмов";
             this.chart2.Titles.Add(title2);
             // 
             // saveData
             // 
-            this.saveData.Location = new System.Drawing.Point(402, 479);
+            this.saveData.BackColor = System.Drawing.Color.Plum;
+            this.saveData.FlatAppearance.BorderColor = System.Drawing.Color.Plum;
+            this.saveData.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.saveData.Font = new System.Drawing.Font("Comic Sans MS", 12F);
+            this.saveData.Location = new System.Drawing.Point(582, 479);
             this.saveData.Name = "saveData";
-            this.saveData.Size = new System.Drawing.Size(276, 35);
+            this.saveData.Size = new System.Drawing.Size(297, 64);
             this.saveData.TabIndex = 3;
             this.saveData.Text = "Сохранить данные";
-            this.saveData.UseVisualStyleBackColor = true;
+            this.saveData.UseVisualStyleBackColor = false;
             this.saveData.Click += new System.EventHandler(this.saveData_Click);
             // 
             // AnalysisForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1081, 993);
+            this.BackColor = System.Drawing.Color.Cornsilk;
+            this.ClientSize = new System.Drawing.Size(1081, 1012);
             this.Controls.Add(this.saveData);
             this.Controls.Add(this.chart2);
             this.Controls.Add(this.buildDiagram);
             this.Controls.Add(this.chart1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AnalysisForm";
-            this.Text = "AnalysisForm";
+            this.Text = "Анализ алгоритмов";
             this.Load += new System.EventHandler(this.AnalysisForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
@@ -209,5 +223,6 @@ namespace ColoringGraph
         private System.Windows.Forms.Button buildDiagram;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart2;
         private System.Windows.Forms.Button saveData;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }

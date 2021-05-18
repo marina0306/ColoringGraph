@@ -108,7 +108,14 @@ namespace ColoringGraph
                 Brush brush = getBrush(i);
                 Brush stringBrush = getStringBrush(i);
                 g.FillEllipse(brush, new RectangleF(points[i], new Size(20, 20)));
-                g.DrawString((i + 1).ToString(), new Font("Arial", 14, FontStyle.Regular), stringBrush, points[i]);
+                if(i < 9)
+                {
+                    g.DrawString((i + 1).ToString(), new Font("Arial", 15, FontStyle.Regular), stringBrush, points[i]);
+                }
+                else
+                {
+                    g.DrawString((i + 1).ToString(), new Font("Arial", 11, FontStyle.Regular), stringBrush, points[i]);
+                }
             }
         }
     }

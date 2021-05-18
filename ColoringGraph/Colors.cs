@@ -14,7 +14,15 @@ namespace ColoringGraph
         public static void generateColors(int[,] matrix)
         {
             int maxColor = 16777215;
-            int iter = maxColor / (matrix.GetLength(0) - 1);
+            int iter;
+            if (matrix.GetLength(0) == 1)
+            {
+                iter = 0;
+            }
+            else
+            {
+                iter = maxColor / (matrix.GetLength(0) - 1);
+            }
             int current = maxColor;
 
             for (int i = 0; i < matrix.GetLength(0); i++)

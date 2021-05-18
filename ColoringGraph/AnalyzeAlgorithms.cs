@@ -121,7 +121,7 @@ namespace ColoringGraph
             timer.Stop();
             usedColors = getColorNumber(algorithm.getColors());
             algorithmTable[currentVertex].Add(usedColors);
-            algTime[currentVertex].Add(timer.ElapsedMilliseconds);
+            algTime[currentVertex].Add(timer.Elapsed.TotalMilliseconds);
         }
 
         private int getColorNumber(Dictionary<int, Color> coloredVertex) 

@@ -60,6 +60,7 @@
     <Compile Include="AnalyzeAlgorithms.cs" />
     <Compile Include="Colors.cs" />
     <Compile Include="DegreeBasedAlgorithm.cs" />
+    <Compile Include="ExcelDocument.cs" />
     <Compile Include="ExhaustedAlgorithm.cs" />
     <Compile Include="FirstFitAlgorithm.cs" />
     <Compile Include="IAlgorithm.cs" />
