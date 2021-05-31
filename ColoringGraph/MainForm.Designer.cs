@@ -60,6 +60,8 @@ namespace ColoringGraph
             // 
             // matrix
             // 
+            this.matrix.AllowUserToAddRows = false;
+            this.matrix.AllowUserToDeleteRows = false;
             this.matrix.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.matrix.BackgroundColor = System.Drawing.SystemColors.Window;
             this.matrix.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -75,6 +77,7 @@ namespace ColoringGraph
             this.matrix.GridColor = System.Drawing.Color.Tomato;
             this.matrix.Location = new System.Drawing.Point(302, 121);
             this.matrix.Name = "matrix";
+            this.matrix.ReadOnly = true;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.OrangeRed;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
