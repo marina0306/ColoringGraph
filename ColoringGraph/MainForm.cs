@@ -25,7 +25,7 @@ namespace ColoringGraph
             vertexQuantity.Minimum = 1;
             vertexQuantity.Maximum = 20;
             maxEdges.Maximum = 500;
-            maxEdges.Minimum = 1;
+            maxEdges.Minimum = 5;
             iterationsNumber.Maximum = 500;
             iterationsNumber.Minimum = 1;
         }
@@ -102,8 +102,15 @@ namespace ColoringGraph
 
         private void buildGraph_Click(object sender, EventArgs e)
         {
-            Graph graph = new Graph(array);
-            graph.Show();
+            if (array != null)
+            {
+                Graph graph = new Graph(array);
+                graph.Show();
+            }
+            else
+            {
+                MessageBox.Show("Сгенерируйте граф");
+            }
         }
 
         private void firstFitButton_Click(object sender, EventArgs e)
@@ -119,7 +126,7 @@ namespace ColoringGraph
             }
             else
             {
-                MessageBox.Show("Сгенерируйте граф, пожалуйста");
+                MessageBox.Show("Сгенерируйте граф");
             }
         }
 
@@ -136,7 +143,7 @@ namespace ColoringGraph
             }
             else
             {
-                MessageBox.Show("Сгенерируйте граф, пожалуйста");
+                MessageBox.Show("Сгенерируйте граф");
             }
         }
 
@@ -153,7 +160,7 @@ namespace ColoringGraph
             }
             else
             {
-                MessageBox.Show("Сгенерируйте граф, пожалуйста");
+                MessageBox.Show("Сгенерируйте граф");
             }
         }
 
@@ -170,7 +177,7 @@ namespace ColoringGraph
             }
             else
             {
-                MessageBox.Show("Сгенерируйте граф, пожалуйста");
+                MessageBox.Show("Сгенерируйте граф");
             }
         }
 
@@ -187,7 +194,7 @@ namespace ColoringGraph
             }
             else
             {
-                MessageBox.Show("Сгенерируйте граф, пожалуйста");
+                MessageBox.Show("Сгенерируйте граф");
             }
         }
 
@@ -204,7 +211,7 @@ namespace ColoringGraph
             }
             else
             {
-                MessageBox.Show("Сгенерируйте граф, пожалуйста");
+                MessageBox.Show("Сгенерируйте граф");
             }
         }
 

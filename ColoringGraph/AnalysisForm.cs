@@ -127,6 +127,7 @@ namespace ColoringGraph
                     Type.Missing, Type.Missing);
                 excelDocument.getWorkbook().Close(false, Type.Missing, Type.Missing);
                 excelDocument.getApp().Quit();
+                MessageBox.Show("Данные успешно сохранены");
             }
         }
     }

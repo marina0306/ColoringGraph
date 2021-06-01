@@ -144,7 +144,7 @@ namespace ColoringGraph
             int[,] array = new int[vertex, vertex];
             Random random = new Random();
             int maxEdge = vertex * (vertex - 1) / 2;
-            int edge = random.Next(0, maxEdge);
+            int edge = random.Next(1, maxEdge);
             int firstVert, secondVert;
 
             for (int i = 0; i < edge; i++)
