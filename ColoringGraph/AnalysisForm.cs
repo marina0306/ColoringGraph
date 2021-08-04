@@ -47,7 +47,13 @@ namespace ColoringGraph
 
         private void AnalysisForm_Load(object sender, EventArgs e)
         {
+            for(int i = 0; i < 5; i++)
+            {
+                
 
+            }
+            chart1.ChartAreas[0].AxisX.Title = "Число вершин";
+            chart1.ChartAreas[0].AxisY.Title = "Число цветов";
         }
 
         private void buildDiagram_Click(object sender, EventArgs e)
@@ -67,8 +73,6 @@ namespace ColoringGraph
             chart1.Series[seriesNumber].ChartArea = "ChartArea1";
             chart1.Series[seriesNumber].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
 
-            chart1.ChartAreas[0].AxisX.Title = "Число вершин";
-            chart1.ChartAreas[0].AxisY.Title = "Число цветов";
             foreach (int vertexNumber in table.Keys)
             {
                 foreach(int colorNumber in table[vertexNumber])
@@ -80,7 +84,6 @@ namespace ColoringGraph
                 y = avg / number;
                 x = vertexNumber;
                 chart1.Series[seriesNumber].Points.AddXY(x, y);
-
                 number = 0;
                 avg = 0;
             }
@@ -94,6 +97,7 @@ namespace ColoringGraph
 
             chart2.ChartAreas[0].AxisX.Title = "Число вершин";
             chart2.ChartAreas[0].AxisY.Title = "Время работы";
+
             foreach (int vertexNumber in tableTime.Keys)
             {
                 foreach (int colorNumber in tableTime[vertexNumber])
